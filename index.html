@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EG Interactive · Desarrollo y diseño web</title>
+<meta name="description" content="Diseño y desarrollo sitios y aplicaciones web para negocios, emprendimientos y startups.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+:root{--bg:#0a0e17;--bg2:#0e1420;--tx:#e6e9f0;--mut:#8b93a7;--line:#1d2536;--ac:#3b82f6;--acx:#2563eb;--mock:#141c2b;--mock2:#1f2a3f;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#fafbfc;--bg2:#f1f3f7;--tx:#0f1522;--mut:#5a6479;--line:#dde1ea;--ac:#2563eb;--acx:#1d4ed8;--mock:#e9edf4;--mock2:#d3dae6;color-scheme:light}}
+:root[data-theme="light"]{--bg:#fafbfc;--bg2:#f1f3f7;--tx:#0f1522;--mut:#5a6479;--line:#dde1ea;--ac:#2563eb;--acx:#1d4ed8;--mock:#e9edf4;--mock2:#d3dae6;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));height:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit;text-decoration:none}
+.w{max-width:1120px;margin:0 auto;padding:0 28px}
+section{padding:112px 0;border-top:1px solid var(--line)}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(2.4rem,5.4vw,4rem);font-weight:600;line-height:1.05;letter-spacing:-.035em}
+h2{font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:600;letter-spacing:-.025em;line-height:1.15}
+.lead{color:var(--mut);max-width:56ch;font-size:1.1rem}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.8rem;color:var(--mut)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
+.logo{font-weight:600;letter-spacing:-.01em}
+.links{display:flex;gap:32px;font-size:.92rem;color:var(--mut)}
+.links a{transition:color .15s}.links a:hover{color:var(--tx)}
+.btn{display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:6px;font:500 .92rem Inter,sans-serif;border:1px solid var(--line);color:var(--tx);background:none;cursor:pointer;transition:background .15s,border-color .15s}
+.btn:hover{border-color:var(--mut)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn.p:hover{background:var(--acx);border-color:var(--acx)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.hero{border-top:0;padding:96px 0 104px}
+.hg{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center}
+.hero .lead{margin:24px 0 36px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.code{background:var(--bg2);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.code .t{padding:10px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.code pre{margin:0;padding:18px 16px;font:400 .8rem/1.8 'JetBrains Mono',monospace;overflow-x:auto;color:var(--tx)}
+.k{color:var(--ac)}.c{color:var(--mut)}
+.stack{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;gap:28px;flex-wrap:wrap}
+.sh{display:grid;grid-template-columns:1fr 2fr;gap:64px;margin-bottom:56px}
+.sv{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:48px;padding:32px 0;border-bottom:1px solid var(--line)}
+.row h3{font-size:1.2rem;font-weight:600;letter-spacing:-.01em}
+.row p{color:var(--mut)}
+.row ul{margin:0;padding:0;list-style:none;font-size:.92rem;color:var(--mut)}
+.row li{padding:2px 0}.row li::before{content:"–  "}
+.ben{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:48px}
+.ben b{display:block;font-weight:500;margin-bottom:4px}.ben span{color:var(--mut);font-size:.92rem}
+.fl{display:flex;gap:28px;margin-bottom:40px;border-bottom:1px solid var(--line)}
+.fl button{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:0 0 12px;color:var(--mut);font:500 .92rem Inter,sans-serif;cursor:pointer}
+.fl button[aria-pressed="true"]{color:var(--tx);border-color:var(--ac)}
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 32px}
+.proj.hide{display:none}
+.mock{background:var(--mock);border:1px solid var(--line);border-radius:8px;overflow:hidden;aspect-ratio:16/10;transition:border-color .2s}
+.proj:hover .mock{border-color:var(--ac)}
+.mock{position:relative}.fr{position:absolute;top:28px;left:0;width:1280px;border:0;background:#fff;transform-origin:0 0;pointer-events:none;opacity:0;transition:opacity .4s}.fr.ok{opacity:1}
+.mock .bar{height:28px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:5px;padding:0 12px}
+.mock .bar i{width:7px;height:7px;border-radius:50%;background:var(--mock2)}
+.mock .bd{padding:18px;display:grid;gap:10px;align-content:start}
+.mock .bd div{background:var(--mock2);border-radius:3px;height:10px}
+.mock .bd .h{height:26px;width:60%;background:var(--tx);opacity:.8}
+.mock .bd .b{height:30px;width:90px;background:var(--ac);opacity:1}
+.mock .bd .g{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;background:none;height:auto}
+.mock .bd .g i{height:56px;background:var(--mock2);border-radius:3px}
+.pi{padding-top:18px}.feat{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}.feat .pi{padding-top:0}.feat .pi p{max-width:56ch}.bdg{display:inline-block;margin:8px 0 0;padding:3px 10px;border:1px solid var(--ac);border-radius:999px;color:var(--ac);font-size:.78rem;font-weight:500}.pi .bdg+p{margin-top:12px}
+.pi h3{font-size:1.15rem;font-weight:600}
+.pi p{color:var(--mut);margin:6px 0 14px;font-size:.96rem;max-width:48ch}
+.pi .ln{display:flex;gap:20px;margin-top:10px;font-size:.9rem;font-weight:500}
+.pi .ln a{color:var(--ac)}.gi{width:18px;height:18px;flex:none;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%2300a0ff' d='M3.6 1.5 13.4 12 3.6 22.5c-.4-.2-.6-.6-.6-1.1V2.6c0-.5.2-.9.6-1.1z'/><path fill='%2334a853' d='M3.6 1.5 13.4 12 17 8.4 5 1.7c-.4-.2-1-.3-1.4-.2z'/><path fill='%23fbbc04' d='M17 8.4 21 10.7c.9.5.9 1.6 0 2.1L17 15.6 13.4 12z'/><path fill='%23ea4335' d='M13.4 12 17 15.6 5 22.3c-.4.2-1 .2-1.4-.1z'/></svg>") center/contain no-repeat}.pi .ln a.gp{display:inline-flex;align-items:center;gap:8px}.pi .ln a:hover{text-decoration:underline}
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.ab p{color:var(--mut)}.ab p+p{margin-top:16px}
+ol{list-style:none;margin:0;padding:0;counter-reset:s}
+ol li{counter-increment:s;display:grid;grid-template-columns:40px 1fr;padding:20px 0;border-top:1px solid var(--line)}
+ol li:last-child{border-bottom:1px solid var(--line)}
+ol li::before{content:counter(s);font:400 .8rem 'JetBrains Mono',monospace;color:var(--ac);padding-top:3px}
+ol b{font-weight:500;display:block}ol span{color:var(--mut);font-size:.94rem}
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.ct .lead{margin:16px 0 28px}
+.ct a.m{color:var(--ac);font-weight:500}
+.cf{display:grid;gap:14px}
+label{font-size:.85rem;color:var(--mut);display:grid;gap:6px}
+input,textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:12px 14px;color:var(--tx);font:inherit}
+input:focus,textarea:focus{border-color:var(--ac)}
+footer{padding:32px 0;border-top:1px solid var(--line);color:var(--mut);font-size:.88rem}
+footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:880px){.feat{grid-template-columns:1fr;gap:0}.feat .pi{padding-top:18px}.hg,.sh,.ab,.ct,.row{grid-template-columns:1fr;gap:28px}.sh{gap:12px}.links{display:none}.ben,.pg{grid-template-columns:1fr 1fr}section{padding:72px 0}}
+@media(max-width:560px){.ben,.pg{grid-template-columns:1fr}.w{padding:0 20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="w"><nav>
+<a class="logo" href="#inicio">EG Interactive</a>
+<div class="links"><a href="#inicio">Inicio</a><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#sobre-mi">Sobre mí</a><a href="#contacto">Contacto</a></div>
+<a class="btn p" href="#contacto">Solicitar cotización</a>
+</nav></div></header>
+<main>
+<section id="inicio" class="hero"><div class="w">
+<div class="hg">
+<div>
+<h1>Desarrollo web a medida para negocios que quieren crecer.</h1>
+<p class="lead">Diseño y construyo experiencias web de alto rendimiento que transforman ideas en negocios digitales.</p>
+<div class="cta"><a class="btn p" href="#proyectos">Ver portafolio</a><a class="btn" href="#contacto">Cotizar sitio web</a></div>
+</div>
+<div class="code" aria-hidden="true">
+<div class="t"><span class="mono">app/page.tsx</span><span class="mono">TypeScript</span></div>
+<pre><span class="k">export default async function</span> Home() {
+  <span class="k">const</span> { data } = <span class="k">await</span> db
+    .from(<span class="c">'proyectos'</span>)
+    .select(<span class="c">'*'</span>)
+
+  <span class="k">return</span> &lt;Portafolio items={data} /&gt;
+}</pre>
+</div>
+</div>
+<div class="stack mono"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Supabase</span><span>Vercel</span></div>
+</div></section>
+
+<section id="proyectos"><div class="w">
+<div class="sh"><h2>Proyectos</h2><p class="lead">Trabajos recientes para clientes y proyectos propios.</p></div>
+<div class="fl" role="group" aria-label="Filtrar proyectos">
+<button aria-pressed="true" data-f="all">Todos</button><button aria-pressed="false" data-f="web">Webs</button><button aria-pressed="false" data-f="app">Apps</button><button aria-pressed="false" data-f="personal">Personales</button>
+</div>
+<div class="pg">
+<article class="proj feat" data-c="app"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="bd"><div style="width:40%"></div><div class="g"><i></i><i></i><i></i></div><div class="g"><i></i><i></i><i></i></div></div><iframe class="fr" src="https://maneja-mu.vercel.app/" title="Vista previa de Maneja" loading="lazy" tabindex="-1"></iframe></div>
+<div class="pi"><h3>Maneja</h3><p>App para preparar el examen teórico de conducir chileno, para clase B y C. Tiene modo examen de 35 preguntas con tiempo, modo estudio con explicaciones y un modo inteligente que detecta tus puntos débiles. Más de 160 preguntas, funciona sin conexión y no tiene anuncios.</p><span class="mono">App web · Android · Versión PRO con compras en la app</span><div class="ln"><a class="gp" href="https://play.google.com/store/apps/details?id=cl.maneja.app" target="_blank" rel="noopener"><span class="gi" aria-hidden="true"></span>Ver en Google Play</a><a href="https://maneja-mu.vercel.app/" target="_blank" rel="noopener">Probar versión web</a></div></div></article>
+<article class="proj" data-c="web"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="bd"><div class="h" style="width:80%"></div><div class="h" style="width:45%"></div><div style="width:60%"></div><div class="b"></div></div><iframe class="fr" src="https://crew-archives-lnv9.vercel.app/" title="Vista previa de Crew Archives" loading="lazy" tabindex="-1"></iframe></div>
+<div class="pi"><h3>Crew Archives</h3><p>Sitio web con identidad skate bajo el lema «Skate and Destroy».</p><span class="mono">Añade las tecnologías</span><div class="ln"><a href="https://crew-archives-lnv9.vercel.app/" target="_blank" rel="noopener">Ver demo</a></div></div></article>
+<article class="proj" data-c="web"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="bd"><div class="h"></div><div style="width:75%"></div><div class="b"></div><div class="g"><i></i><i></i><i></i></div></div><iframe class="fr" src="https://vuela-pied.vercel.app/" title="Vista previa de Vuela" loading="lazy" tabindex="-1"></iframe></div>
+<div class="pi"><h3>Vuela</h3><p>Describe aquí el problema que resuelve y el resultado.</p><span class="mono">Añade las tecnologías</span><div class="ln"><a href="https://vuela-pied.vercel.app/" target="_blank" rel="noopener">Ver demo</a></div></div></article>
+<article class="proj" data-c="personal"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="bd"><div style="width:30%"></div><div class="h" style="width:35%"></div><div class="g"><i></i><i></i><i></i></div></div><iframe class="fr" src="https://kindred-ten-delta.vercel.app/" title="Vista previa de Kindred" loading="lazy" tabindex="-1"></iframe></div>
+<div class="pi"><h3>Kindred</h3><p>Describe aquí el problema que resuelve y el resultado.</p><span class="mono">Añade las tecnologías</span><div class="ln"><a href="https://kindred-ten-delta.vercel.app/" target="_blank" rel="noopener">Ver demo</a></div></div></article>
+</div>
+</div></section>
+
+<section id="servicios"><div class="w">
+<div class="sh"><h2>Servicios</h2><p class="lead">Tres formas de trabajar juntos, según la etapa de tu negocio.</p></div>
+<div class="sv">
+<div class="row"><h3>Landing page o web informativa</h3><p>Para pymes y profesionales que necesitan una presencia online clara y profesional.</p><ul><li>Diseño a medida</li><li>Formulario y WhatsApp</li><li>Entrega en 1 a 2 semanas</li></ul></div>
+<div class="row"><h3>Sitio dinámico o app web</h3><p>Plataformas con usuarios, base de datos y un panel para gestionar tu negocio.</p><ul><li>Registro e inicio de sesión</li><li>Base de datos</li><li>Panel de administración</li></ul></div>
+<div class="row"><h3>Optimización y rediseño</h3><p>Mejoro un sitio existente: más rápido, mejor posicionado y más fácil de usar.</p><ul><li>Auditoría de velocidad y SEO</li><li>Rediseño UX/UI</li><li>Informe antes y después</li></ul></div>
+</div>
+<div class="ben">
+<div><b>Carga rápida</b><span>Imágenes y código optimizados.</span></div>
+<div><b>Responsive</b><span>Funciona en móvil y escritorio.</span></div>
+<div><b>SEO básico</b><span>Estructura lista para Google.</span></div>
+<div><b>Fácil de administrar</b><span>Editas el contenido sin programar.</span></div>
+</div>
+</div></section>
+
+<section id="sobre-mi"><div class="w ab">
+<div><h2 style="margin-bottom:24px">Sobre mí</h2>
+<p>Soy diseñador y desarrollador full-stack. Me encargo de todo el proceso, del diseño al sitio publicado, así que trabajas con una sola persona.</p>
+<p>Uso herramientas modernas y código ordenado para que tu sitio sea rápido hoy y fácil de ampliar mañana.</p></div>
+<ol>
+<li><div><b>Reunión inicial</b><span>Entiendo tu negocio, tus clientes y el objetivo del sitio.</span></div></li>
+<li><div><b>Propuesta y diseño</b><span>Recibes alcance, precio, plazo y una maqueta para aprobar.</span></div></li>
+<li><div><b>Desarrollo</b><span>Avances semanales que puedes revisar y comentar.</span></div></li>
+<li><div><b>Lanzamiento y soporte</b><span>Publico el sitio y te acompaño después de la entrega.</span></div></li>
+</ol>
+</div></section>
+
+<section id="contacto"><div class="w ct">
+<div><h2>Hablemos de tu proyecto</h2>
+<p class="lead">Cuéntame qué necesitas y te respondo con una cotización en menos de 48 horas.</p>
+<a class="m" href="mailto:tu@correo.com">tu@correo.com</a></div>
+<div class="cf">
+<label>Nombre<input id="n" autocomplete="name"></label>
+<label>Correo<input id="e" type="email" autocomplete="email"></label>
+<label>¿Qué necesitas?<textarea id="m" rows="4"></textarea></label>
+<button class="btn p" id="send" type="button" style="justify-self:start">Enviar mensaje</button>
+</div></div></section>
+</main>
+<footer><div class="w"><span>© 2026 Eric Gallegos</span><span>Disponible para nuevos proyectos</span></div></footer>
+<script>
+document.querySelectorAll('.fl button').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.fl button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+document.querySelectorAll('.proj').forEach(function(c){c.classList.toggle('hide',b.dataset.f!=='all'&&c.dataset.c!==b.dataset.f)})})});
+document.getElementById('send').addEventListener('click',function(){
+location.href='mailto:tu@correo.com?subject='+encodeURIComponent('Cotización web')+'&body='+encodeURIComponent('Nombre: '+n.value+'\nCorreo: '+e.value+'\n\n'+m.value)});
+function fit(){document.querySelectorAll('.fr').forEach(function(f){var m=f.parentNode,k=m.clientWidth/1280;f.style.transform='scale('+k+')';f.style.height=((m.clientHeight-28)/k)+'px'})}
+document.querySelectorAll('.fr').forEach(function(f){f.addEventListener('load',function(){f.classList.add('ok')})});
+window.addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>
