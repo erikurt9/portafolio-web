@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tu Nombre · Desarrollo y diseño web</title>
+<title>EG Interactive · Desarrollo y diseño web</title>
 <meta name="description" content="Diseño y desarrollo sitios y aplicaciones web para negocios, emprendimientos y startups.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
 <style>
@@ -32,7 +32,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:68px;ga
 .btn:hover{border-color:var(--mut)}
 .btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn.p:hover{background:var(--acx);border-color:var(--acx)}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
-.hero{border-top:0;padding:96px 0 104px}
+.hero{padding:96px 0 104px}
 .hg{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center}
 .hero .lead{margin:24px 0 36px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
@@ -94,33 +94,12 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </head>
 <body>
 <header><div class="w"><nav>
-<a class="logo" href="#inicio">Tu Nombre</a>
-<div class="links"><a href="#inicio">Inicio</a><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#sobre-mi">Sobre mí</a><a href="#contacto">Contacto</a></div>
+<a class="logo" href="#inicio">EG Interactive</a>
+<div class="links"><a href="#proyectos">Proyectos</a><a href="#inicio">Inicio</a><a href="#servicios">Servicios</a><a href="#sobre-mi">Sobre mí</a><a href="#contacto">Contacto</a></div>
 <a class="btn p" href="#contacto">Solicitar cotización</a>
 </nav></div></header>
 <main>
-<section id="inicio" class="hero"><div class="w">
-<div class="hg">
-<div>
-<h1>Desarrollo web a medida para negocios que quieren crecer.</h1>
-<p class="lead">Diseño y construyo experiencias web de alto rendimiento que transforman ideas en negocios digitales.</p>
-<div class="cta"><a class="btn p" href="#proyectos">Ver portafolio</a><a class="btn" href="#contacto">Cotizar sitio web</a></div>
-</div>
-<div class="code" aria-hidden="true">
-<div class="t"><span class="mono">app/page.tsx</span><span class="mono">TypeScript</span></div>
-<pre><span class="k">export default async function</span> Home() {
-  <span class="k">const</span> { data } = <span class="k">await</span> db
-    .from(<span class="c">'proyectos'</span>)
-    .select(<span class="c">'*'</span>)
-
-  <span class="k">return</span> &lt;Portafolio items={data} /&gt;
-}</pre>
-</div>
-</div>
-<div class="stack mono"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Supabase</span><span>Vercel</span></div>
-</div></section>
-
-<section id="proyectos"><div class="w">
+<section id="proyectos" style="border-top:0;padding-top:72px"><div class="w">
 <div class="sh"><h2>Proyectos</h2><p class="lead">Trabajos recientes para clientes y proyectos propios.</p></div>
 <div class="fl" role="group" aria-label="Filtrar proyectos">
 <button aria-pressed="true" data-f="all">Todos</button><button aria-pressed="false" data-f="web">Webs</button><button aria-pressed="false" data-f="app">Apps</button><button aria-pressed="false" data-f="personal">Personales</button>
@@ -142,7 +121,30 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <div class="pi"><h3>Mister Lukas · Demo 2</h3><p>Otra propuesta de diseño para el sitio de la tienda de mascotas. Describe aquí qué cambia respecto a la primera.</p><span class="mono">Añade las tecnologías</span><div class="ln"><a href="https://mister-lukas2.vercel.app/" target="_blank" rel="noopener">Ver demo</a></div></div></article>
 <article class="proj" data-c="personal"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="bd"><div style="width:35%"></div><div class="h" style="width:60%"></div><div class="g"><i></i><i></i><i></i></div></div><iframe class="fr" src="https://retro-net1.vercel.app/" title="Vista previa de RETRO-NET · Versión 1" loading="lazy" tabindex="-1"></iframe></div>
 <div class="pi"><h3>RETRO-NET · Versión 1</h3><p>Archivo de cultura pop. Describe aquí el problema que resuelve y el resultado.</p><span class="mono">Añade las tecnologías</span><div class="ln"><a href="https://retro-net1.vercel.app/" target="_blank" rel="noopener">Ver demo</a></div></div></article>
+<article class="proj" data-c="web"><div class="mock"><div class="bar"><i></i><i></i><i></i></div><div class="bd"><div style="width:30%"></div><div class="h" style="width:50%"></div><div class="g"><i></i><i></i><i></i></div><div class="g"><i></i><i></i><i></i></div></div><iframe class="fr" src="https://gadgetdrop-frontend.vercel.app/" title="Vista previa de GadgetDrop" loading="lazy" tabindex="-1"></iframe></div>
+<div class="pi"><h3>GadgetDrop</h3><p>Tienda online de gadgets. Describe aquí el problema que resuelve y el resultado.</p><span class="mono">Añade las tecnologías</span><div class="ln"><a href="https://gadgetdrop-frontend.vercel.app/" target="_blank" rel="noopener">Ver demo</a></div></div></article>
 </div>
+</div></section>
+
+<section id="inicio" class="hero"><div class="w">
+<div class="hg">
+<div>
+<h1>Desarrollo web a medida para negocios que quieren crecer.</h1>
+<p class="lead">Diseño y construyo experiencias web de alto rendimiento que transforman ideas en negocios digitales.</p>
+<div class="cta"><a class="btn p" href="#proyectos">Ver portafolio</a><a class="btn" href="#contacto">Cotizar sitio web</a></div>
+</div>
+<div class="code" aria-hidden="true">
+<div class="t"><span class="mono">app/page.tsx</span><span class="mono">TypeScript</span></div>
+<pre><span class="k">export default async function</span> Home() {
+  <span class="k">const</span> { data } = <span class="k">await</span> db
+    .from(<span class="c">'proyectos'</span>)
+    .select(<span class="c">'*'</span>)
+
+  <span class="k">return</span> &lt;Portafolio items={data} /&gt;
+}</pre>
+</div>
+</div>
+<div class="stack mono"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Supabase</span><span>Vercel</span></div>
 </div></section>
 
 <section id="servicios"><div class="w">
@@ -175,7 +177,7 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <section id="contacto"><div class="w ct">
 <div><h2>Hablemos de tu proyecto</h2>
 <p class="lead">Cuéntame qué necesitas y te respondo con una cotización en menos de 48 horas.</p>
-<a class="m" href="mailto:tu@correo.com">tu@correo.com</a></div>
+<a class="m" href="mailto:tu@correo.com">tu@correo.com</a><br><a class="m" href="https://github.com/erikurt9" target="_blank" rel="noopener">github.com/erikurt9</a></div>
 <div class="cf">
 <label>Nombre<input id="n" autocomplete="name"></label>
 <label>Correo<input id="e" type="email" autocomplete="email"></label>
@@ -183,7 +185,7 @@ footer .w{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 <button class="btn p" id="send" type="button" style="justify-self:start">Enviar mensaje</button>
 </div></div></section>
 </main>
-<footer><div class="w"><span>© 2026 Tu Nombre</span><span>Disponible para nuevos proyectos</span></div></footer>
+<footer><div class="w"><span>© 2026 EG Interactive</span><span><a href="https://github.com/erikurt9" target="_blank" rel="noopener">GitHub</a> · Disponible para nuevos proyectos</span></div></footer>
 <script>
 document.querySelectorAll('.fl button').forEach(function(b){b.addEventListener('click',function(){
 document.querySelectorAll('.fl button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});
